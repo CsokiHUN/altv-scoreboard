@@ -1,6 +1,7 @@
 # altv-scoreboard
 
 Basic scoreboard with player mugshot. Default toggle key: **Caps Lock**
+
 Columns: ID, Name, Current Session Time
 
 ### Screenshot
