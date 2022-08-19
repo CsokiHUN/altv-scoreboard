@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scoreboard</title>
+
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+      integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="visible" class="main">
+        <div class="header">
+          <img :src="image" class="mugshot" />
+          <div class="datas">
+            <ul>
+              <li>
+                <i class="fas fa-id-card"></i>
+                {{ charName }}
+              </li>
+              <li>
+                <i class="fas fa-wallet"></i>
+                {{ money }}$
+              </li>
+              <li>
+                <i class="fas fa-map-marked-alt"></i>
+                {{ location }}
+              </li>
+            </ul>
+          </div>
+          <div class="counter">{{ onlinePlayers.length }}/{{ serverSlots }}</div>
+        </div>
+
+        <table>
+          <tbody>
+            <tr v-for="player in onlinePlayers">
+              <td class="id">{{ player.id }}</td>
+              <td v-if="player.loggedIn" class="char-name">{{ player.name }}</td>
+              <td v-else class="char-name login-false" colspan="3">Nincs bejelentkezve</td>
+              <td class="ping">{{ player.ping }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.30/vue.global.prod.min.js"
+    integrity="sha512-yjiw0jdDCp5jzIUzNDhnyICQwFxXWRyOuBWdmHgBXeqmEU/xmWHAFv+HMEHoqzIgth8vDrSB9HqGOwdrOxF+Ng=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="ui.js"></script>
+</html>
