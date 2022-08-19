@@ -36,16 +36,15 @@
               </li>
             </ul>
           </div>
-          <div class="counter">{{ onlinePlayers.length }}/{{ serverSlots }}</div>
+          <div class="counter">{{ onlinePlayers.length }} players online</div>
         </div>
 
         <table>
           <tbody>
             <tr v-for="player in onlinePlayers">
               <td class="id">{{ player.id }}</td>
-              <td v-if="player.loggedIn" class="char-name">{{ player.name }}</td>
-              <td v-else class="char-name login-false" colspan="3">Nincs bejelentkezve</td>
-              <td class="ping">{{ player.ping }}</td>
+              <td class="char-name">{{ player.name }}</td>
+              <td class="online-time">{{ player.onlineTime }}</td>
             </tr>
           </tbody>
         </table>

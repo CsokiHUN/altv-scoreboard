@@ -59,7 +59,7 @@ tbody {
 }
 
 .id,
-.ping {
+.online-time {
   padding: 0.2em;
   text-align: center;
   width: 8em;
@@ -71,11 +71,6 @@ tbody {
   overflow: hidden;
   display: inline-block;
   white-space: nowrap;
-}
-
-.login-false {
-  opacity: 0.8;
-  font-style: italic;
 }
 
 /* width */

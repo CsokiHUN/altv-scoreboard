@@ -2,11 +2,10 @@ const app = Vue.createApp({
   data() {
     return {
       visible: false,
-      charName: 'Clark Melton',
+      charName: '',
       money: 0,
-      location: 'Grove Street',
-      onlinePlayers: [{ loggedIn: true, name: 'Clark Melton', id: 0, ping: 0 }],
-      serverSlots: 128,
+      location: '',
+      onlinePlayers: [],
     };
   },
   mounted() {
@@ -16,18 +15,14 @@ const app = Vue.createApp({
       this.visible = value;
     });
 
-    alt.on('updateDatas', (players, maxPlayers) => {
+    alt.on('updatePlayers', (players) => {
       this.onlinePlayers = players;
-      this.serverSlots = maxPlayers;
     });
 
-    alt.on('updateLocalDatas', (charName, money, location) => {
+    alt.on('updateLocalPlayer', (charName, money, location, image) => {
       this.charName = charName;
       this.money = money;
       this.location = location;
-    });
-
-    alt.on('updateImage', (image) => {
       this.image = 'data:image/png;base64,' + image;
     });
   },
